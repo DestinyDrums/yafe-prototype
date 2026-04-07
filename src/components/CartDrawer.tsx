@@ -75,7 +75,9 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
               <AnimatePresence mode="popLayout">
                 {cartItems.map((item) => (
                   <motion.div key={`${item.id}-${item.size}`} layout initial={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 60, transition: { duration: 0.25 } }} className="mb-5 flex gap-4">
-                    <div className="h-20 w-20 flex-shrink-0 rounded-lg bg-yafe-gray-200" />
+                    <div className="h-20 w-20 flex-shrink-0 rounded-lg bg-yafe-gray-200 overflow-hidden">
+                      <img src={item.image} alt={item.name} className="h-full w-full object-cover" />
+                    </div>
                     <div className="flex flex-1 flex-col justify-between">
                       <div>
                         <p className="text-sm font-medium leading-tight text-yafe-navy">{item.name}</p>
