@@ -20,7 +20,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "YAFE. | Luxury-Accessible African Fashion",
+  title: "YAFE. | Accessible African Fashion",
   description:
     "Dress like you belong in every room. Quality workwear. Thoughtfully priced.",
 };
