@@ -104,7 +104,7 @@ export default function Home() {
           <div className="flex flex-col items-center">
             <div className="w-56 aspect-[3/4] rounded-t-[100px] overflow-hidden mb-8 shadow-xl shadow-yafe-navy/5 relative">
               <img
-                src="/products/tolani.jpeg"
+                src="/products/Tolani.jpeg"
                 className="w-full h-full object-cover"
                 alt="Tolani — Founder of YAFE"
               />
