@@ -1,52 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
 import { insidersVoteImages } from '@/data/images';
-
-const DROP_DATE = new Date(Date.now() + 3 * 24 * 60 * 60 * 1000); // 3 days from now
-
-function useCountdown(target: Date) {
-  const calc = () => {
-    const diff = Math.max(0, target.getTime() - Date.now());
-    return {
-      days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((diff / (1000 * 60)) % 60),
-      seconds: Math.floor((diff / 1000) % 60),
-    };
-  };
-  const [time, setTime] = useState(calc);
-  useEffect(() => {
-    const id = setInterval(() => setTime(calc), 1000);
-    return () => clearInterval(id);
-  }, []);
-  return time;
-}
-
-function FlipDigit({ value, label }: { value: number; label: string }) {
-  const display = String(value).padStart(2, '0');
-  return (
-    <div className="flex flex-col items-center">
-      <div className="relative w-14 h-14 bg-white/10 rounded-lg overflow-hidden shadow-inner">
-        <AnimatePresence mode="popLayout">
-          <motion.span
-            key={display}
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 20, opacity: 0 }}
-            transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-            className="absolute inset-0 flex items-center justify-center font-serif text-2xl text-yafe-gold"
-          >
-            {display}
-          </motion.span>
-        </AnimatePresence>
-      </div>
-      <span className="text-[8px] uppercase tracking-widest text-white/40 mt-1.5">{label}</span>
-    </div>
-  );
-}
+import { CountdownFull } from '@/components/Countdown';
 
 type NecklineOption = 'vneck' | 'mandarin';
 
@@ -92,8 +49,6 @@ export default function InsidersPage() {
 
   const handleCopy = () => { navigator.clipboard.writeText('YAFE-ADE2024'); setCopied(true); setTimeout(() => setCopied(false), 2000); };
 
-  const countdown = useCountdown(DROP_DATE);
-
   return (
     <main className="min-h-screen">
       {/* ─── Hero Section — Dark, Editorial ─── */}
@@ -120,14 +75,8 @@ export default function InsidersPage() {
             </h2>
             <p className="text-sm text-yafe-gold mb-6 font-light">You shop 24hrs early!</p>
 
-            <div className="flex gap-3 mb-8 items-start">
-              <FlipDigit value={countdown.days} label="Days" />
-              <span className="text-yafe-gold font-serif text-lg mt-3.5">:</span>
-              <FlipDigit value={countdown.hours} label="Hrs" />
-              <span className="text-yafe-gold font-serif text-lg mt-3.5">:</span>
-              <FlipDigit value={countdown.minutes} label="Min" />
-              <span className="text-yafe-gold font-serif text-lg mt-3.5">:</span>
-              <FlipDigit value={countdown.seconds} label="Sec" />
+            <div className="mb-8">
+              <CountdownFull />
             </div>
 
             <Link
@@ -139,7 +88,7 @@ export default function InsidersPage() {
           </div>
 
           {/* Your Perks — Horizontal */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 stagger-children">
             {[
               { icon: '⚡', label: 'Early drop access' },
               { icon: '🗳️', label: 'Vote on styles' },

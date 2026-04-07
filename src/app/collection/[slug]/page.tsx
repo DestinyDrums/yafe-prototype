@@ -4,6 +4,7 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { products, formatPrice } from '@/data/products';
 import { getProductImage, collectionHeroImages } from '@/data/images';
+import { CountdownCompact } from '@/components/Countdown';
 
 const collections: Record<string, { name: string; tagline: string; description: string; products: number[] }> = {
   'power-moves': {
@@ -54,13 +55,7 @@ export default function CollectionPage() {
           </p>
           <div className="flex items-center gap-4">
             <span className="text-xs font-medium tracking-widest uppercase text-yafe-cream/70">Drop ends in</span>
-            <div className="flex gap-2">
-              {['02', '14', '59'].map((val, i) => (
-                <div key={i} className="w-9 h-9 bg-white/10 backdrop-blur-sm rounded flex items-center justify-center font-serif text-lg text-yafe-gold">
-                  {val}
-                </div>
-              ))}
-            </div>
+            <CountdownCompact />
           </div>
         </div>
       </section>
@@ -88,7 +83,7 @@ export default function CollectionPage() {
                 <div className="relative aspect-[3/4] mb-4 overflow-hidden bg-gray-100">
                   <img
                     src={getProductImage(product.id)}
-                    className="w-full h-full object-cover transition duration-300 ease-in-out group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-200 ease-out group-hover:scale-[1.03]"
                     alt={product.name}
                   />
                   <div className="absolute bottom-3 left-3 bg-yafe-cream/95 backdrop-blur text-yafe-navy text-[9px] font-semibold px-2.5 py-1 uppercase tracking-widest shadow-sm">

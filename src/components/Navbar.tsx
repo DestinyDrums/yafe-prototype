@@ -35,7 +35,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 bg-yafe-cream/95 backdrop-blur-md border-b border-yafe-navy/5 transition-all duration-300">
+      <nav className="sticky top-0 z-50 bg-yafe-cream/95 backdrop-blur-md border-b border-yafe-navy/5 transition-[background-color,border-color] duration-200 ease-out">
         <div className="flex items-center justify-between px-5 py-4">
           {/* Left — Hamburger */}
           <button

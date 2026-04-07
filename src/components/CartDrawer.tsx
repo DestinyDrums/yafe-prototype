@@ -35,9 +35,9 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
           />
           <motion.aside
             key="cart-drawer"
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
+            initial={{ transform: 'translateX(100%)' }}
+            animate={{ transform: 'translateX(0%)' }}
+            exit={{ transform: 'translateX(100%)' }}
             transition={{ type: 'spring', damping: 28, stiffness: 300 }}
             className="fixed right-0 top-0 z-[70] flex h-full w-full flex-col shadow-2xl sm:w-[420px] bg-yafe-cream"
           >
@@ -74,7 +74,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
               )}
               <AnimatePresence mode="popLayout">
                 {cartItems.map((item) => (
-                  <motion.div key={`${item.id}-${item.size}`} layout initial={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 60, transition: { duration: 0.25 } }} className="mb-5 flex gap-4">
+                  <motion.div key={`${item.id}-${item.size}`} layout initial={{ opacity: 1, transform: 'translateX(0px)' }} exit={{ opacity: 0, transform: 'translateX(60px)', transition: { duration: 0.2 } }} className="mb-5 flex gap-4">
                     <div className="h-20 w-20 flex-shrink-0 rounded-lg bg-yafe-gray-200 overflow-hidden">
                       <img src={item.image} alt={item.name} className="h-full w-full object-cover" />
                     </div>

@@ -41,7 +41,7 @@ export default function WishlistPage() {
                   <Link href={`/shop/${product.id}`}>
                     <img
                       src={getProductImage(product.id)}
-                      className="w-full h-full object-cover transition duration-300 ease-in-out group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-200 ease-out group-hover:scale-[1.03]"
                       alt={product.name}
                     />
                   </Link>

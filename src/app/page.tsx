@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { products, formatPrice } from '@/data/products';
 import { getProductImage, heroImage, artisanHeroImage } from '@/data/images';
+import { CountdownCompact } from '@/components/Countdown';
 import { useApp } from '@/context/AppContext';
 
 const bestSellers = products.slice(0, 4);
@@ -55,7 +56,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 sm:gap-x-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 sm:gap-x-6 stagger-children">
             {bestSellers.map((product, i) => (
               <Link
                 key={product.id}
@@ -65,7 +66,7 @@ export default function Home() {
                 <div className="relative aspect-[3/4] mb-4 overflow-hidden bg-gray-100">
                   <img
                     src={getProductImage(product.id)}
-                    className="w-full h-full object-cover transition duration-300 ease-in-out group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-200 ease-out group-hover:scale-[1.03]"
                     alt={product.name}
                   />
                   {i === 0 && (
@@ -138,23 +139,7 @@ export default function Home() {
         <div className="px-5 sm:px-8 mb-10 relative z-10 max-w-7xl mx-auto">
           <div className="bg-white/5 border border-white/10 rounded-xl p-5 flex items-center justify-between backdrop-blur-sm max-w-lg">
             <div className="text-xs font-medium tracking-widest uppercase text-yafe-cream/80">Next Drop In</div>
-            <div className="flex gap-2.5 items-center">
-              {[
-                { val: '02', label: 'Days' },
-                { val: '14', label: 'Hrs' },
-                { val: '59', label: 'Min' },
-              ].map((t, i) => (
-                <div key={t.label} className="flex items-center gap-2.5">
-                  {i > 0 && <div className="text-yafe-gold font-serif text-lg -mt-4">:</div>}
-                  <div className="flex flex-col items-center">
-                    <div className="w-10 h-10 bg-white/10 rounded flex items-center justify-center font-serif text-xl text-yafe-gold shadow-inner">
-                      {t.val}
-                    </div>
-                    <div className="text-[8px] uppercase tracking-widest text-white/40 mt-1.5">{t.label}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <CountdownCompact />
           </div>
         </div>
 
