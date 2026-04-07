@@ -3,53 +3,36 @@
 
 export const productImages: Record<string, { primary: string; gallery: string[] }> = {
   'yafe-001': {
-    primary: 'https://images.unsplash.com/photo-1675250719882-ab1d7f047550?auto=format&fit=crop&w=800&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1675250719882-ab1d7f047550?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1675250719871-ba76f9628d40?auto=format&fit=crop&w=800&q=80',
-    ],
+    primary: '/products/boyfriend_blazer.jpeg',
+    gallery: ['/products/boyfriend_blazer.jpeg'],
   },
   'yafe-002': {
-    primary: 'https://images.unsplash.com/photo-1622444913718-dde4471ce697?auto=format&fit=crop&w=800&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1622444913718-dde4471ce697?auto=format&fit=crop&w=800&q=80',
-    ],
+    primary: '/products/pencil_dress.jpeg',
+    gallery: ['/products/pencil_dress.jpeg'],
   },
   'yafe-003': {
-    primary: 'https://images.unsplash.com/photo-1614398077744-0503b90d5ff1?auto=format&fit=crop&w=800&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1614398077744-0503b90d5ff1?auto=format&fit=crop&w=800&q=80',
-    ],
+    primary: '/products/peplum_blouse.jpeg',
+    gallery: ['/products/peplum_blouse.jpeg'],
   },
   'yafe-004': {
-    primary: 'https://images.unsplash.com/photo-1649870577213-a1cf42de5616?auto=format&fit=crop&w=800&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1649870577213-a1cf42de5616?auto=format&fit=crop&w=800&q=80',
-    ],
+    primary: '/products/silk_shell_blouse.jpeg',
+    gallery: ['/products/silk_shell_blouse.jpeg'],
   },
   'yafe-005': {
-    primary: 'https://images.unsplash.com/photo-1563132305-24784f57eeea?auto=format&fit=crop&w=800&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1563132305-24784f57eeea?auto=format&fit=crop&w=800&q=80',
-    ],
+    primary: '/products/structured_blazer.jpeg',
+    gallery: ['/products/structured_blazer.jpeg'],
   },
   'yafe-006': {
-    primary: 'https://images.unsplash.com/photo-1521511189395-b82252213754?auto=format&fit=crop&w=800&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1521511189395-b82252213754?auto=format&fit=crop&w=800&q=80',
-    ],
+    primary: '/products/tailored_pants.jpeg',
+    gallery: ['/products/tailored_pants.jpeg'],
   },
   'yafe-007': {
-    primary: 'https://images.unsplash.com/photo-1606596556957-f6566cc865a9?auto=format&fit=crop&w=800&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1606596556957-f6566cc865a9?auto=format&fit=crop&w=800&q=80',
-    ],
+    primary: '/products/wide_leg_pants.jpeg',
+    gallery: ['/products/wide_leg_pants.jpeg'],
   },
   'yafe-008': {
-    primary: 'https://images.unsplash.com/photo-1640058909682-6605ea5a208b?auto=format&fit=crop&w=800&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1640058909682-6605ea5a208b?auto=format&fit=crop&w=800&q=80',
-    ],
+    primary: '/products/wrap_dress.jpeg',
+    gallery: ['/products/wrap_dress.jpeg'],
   },
 };
 
