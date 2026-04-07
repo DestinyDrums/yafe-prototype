@@ -12,7 +12,7 @@ function formatNaira(amount: number) {
 }
 
 export default function CheckoutPage() {
-  const { cartItems, cartTotal } = useApp();
+  const { cartItems, cartTotal, updateQuantity, removeFromCart } = useApp();
   const [step, setStep] = useState(1);
   const [deliveryOption, setDeliveryOption] = useState<'standard' | 'express'>('standard');
   const [paymentMethod, setPaymentMethod] = useState<'transfer' | 'card' | 'pod'>('transfer');
@@ -75,13 +75,25 @@ export default function CheckoutPage() {
             </div>
           )}
           {cartItems.map((item) => (
-            <div key={`${item.id}-${item.size}`} className="bg-yafe-cream/50 border border-yafe-navy/5 p-4 rounded-xl flex gap-4 items-center">
-              <img src={item.image} className="w-16 h-20 object-cover rounded shadow-sm" alt={item.name} />
-              <div className="flex-1">
-                <h4 className="font-serif text-base text-yafe-navy mb-1">{item.name}</h4>
-                <p className="text-xs text-yafe-navy/60 mb-2 font-medium tracking-wide uppercase">Size: {item.size} {item.quantity > 1 ? `× ${item.quantity}` : ''}</p>
-                <p className="text-sm font-semibold text-yafe-navy">{formatNaira(item.price * item.quantity)}</p>
+            <div key={`${item.id}-${item.size}`} className="relative bg-yafe-cream/50 border border-yafe-navy/5 py-3.5 px-4 rounded-xl flex gap-3.5 items-center">
+              <img src={item.image} className="w-14 h-[70px] object-cover rounded-lg flex-shrink-0" alt={item.name} />
+              <div className="flex-1 flex flex-col gap-2">
+                <div className="flex flex-col gap-0.5">
+                  <h4 className="font-serif text-sm leading-[18px] text-yafe-navy">{item.name}</h4>
+                  <p className="text-[10px] leading-3 text-yafe-navy/50 font-medium tracking-[0.06em] uppercase">Size: {item.size}</p>
+                </div>
+                <div className="flex items-center justify-between mt-1">
+                  <div className="flex items-center rounded-[20px] border border-yafe-navy/10">
+                    <button onClick={() => updateQuantity(item.id, item.size, item.quantity - 1)} className="w-[26px] h-[26px] flex items-center justify-center text-xs text-yafe-navy hover:bg-black/5 rounded-full cursor-pointer">&minus;</button>
+                    <span className="w-[18px] text-center text-[11px] font-medium text-yafe-navy">{item.quantity}</span>
+                    <button onClick={() => updateQuantity(item.id, item.size, item.quantity + 1)} className="w-[26px] h-[26px] flex items-center justify-center text-xs text-yafe-navy hover:bg-black/5 rounded-full cursor-pointer">+</button>
+                  </div>
+                  <p className="text-[13px] font-semibold text-yafe-navy">{formatNaira(item.price * item.quantity)}</p>
+                </div>
               </div>
+              <button onClick={() => removeFromCart(item.id, item.size)} className="absolute top-3 right-3.5 p-1 hover:bg-black/5 rounded-full text-yafe-navy/40 cursor-pointer">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+              </button>
             </div>
           ))}
         </div>
