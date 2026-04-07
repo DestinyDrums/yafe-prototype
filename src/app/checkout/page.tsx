@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useApp } from '@/context/AppContext';
+import { getProductImage } from '@/data/images';
 
 const steps = ['Shipping', 'Payment', 'Review'];
 
@@ -76,7 +77,7 @@ export default function CheckoutPage() {
           )}
           {cartItems.map((item) => (
             <div key={`${item.id}-${item.size}`} className="relative bg-yafe-cream/50 border border-yafe-navy/5 py-3.5 px-4 rounded-xl flex gap-3.5 items-center">
-              <img src={item.image} className="w-14 h-[70px] object-cover rounded-lg flex-shrink-0" alt={item.name} />
+              <img src={item.image || getProductImage(item.id)} className="w-14 h-[70px] object-cover rounded-lg flex-shrink-0" alt={item.name} />
               <div className="flex-1 flex flex-col gap-2">
                 <div className="flex flex-col gap-0.5">
                   <h4 className="font-serif text-sm leading-[18px] text-yafe-navy">{item.name}</h4>

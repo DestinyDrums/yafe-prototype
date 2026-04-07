@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { useApp } from '@/context/AppContext';
+import { getProductImage } from '@/data/images';
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -76,7 +77,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                 {cartItems.map((item) => (
                   <motion.div key={`${item.id}-${item.size}`} layout initial={{ opacity: 1, transform: 'translateX(0px)' }} exit={{ opacity: 0, transform: 'translateX(60px)', transition: { duration: 0.2 } }} className="mb-5 flex gap-4">
                     <div className="h-20 w-20 flex-shrink-0 rounded-lg bg-yafe-gray-200 overflow-hidden">
-                      <img src={item.image} alt={item.name} className="h-full w-full object-cover" />
+                      <img src={item.image || getProductImage(item.id)} alt={item.name} className="h-full w-full object-cover" />
                     </div>
                     <div className="flex flex-1 flex-col justify-between">
                       <div>
