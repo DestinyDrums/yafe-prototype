@@ -3,24 +3,22 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useApp } from '@/context/AppContext';
 
 const steps = ['Shipping', 'Payment', 'Review'];
-
-const orderItems = [
-  { name: 'The Ikoyi Linen Wrap', size: 'M', price: 45000, img: 'https://images.unsplash.com/photo-1581044777550-4cfa60707c03?auto=format&fit=crop&w=150&q=80' },
-];
 
 function formatNaira(amount: number) {
   return '₦' + amount.toLocaleString();
 }
 
 export default function CheckoutPage() {
+  const { cartItems, cartTotal } = useApp();
   const [step, setStep] = useState(1);
   const [deliveryOption, setDeliveryOption] = useState<'standard' | 'express'>('standard');
   const [paymentMethod, setPaymentMethod] = useState<'transfer' | 'card' | 'pod'>('transfer');
 
   const deliveryCost = deliveryOption === 'express' ? 5000 : 2500;
-  const subtotal = orderItems.reduce((sum, item) => sum + item.price, 0);
+  const subtotal = cartTotal;
   const total = subtotal + deliveryCost;
 
   return (
@@ -68,15 +66,24 @@ export default function CheckoutPage() {
           })}
         </div>
 
-        {/* Cart Item Preview */}
-        <div className="bg-yafe-cream/50 border border-yafe-navy/5 p-4 rounded-xl mb-10 flex gap-4 items-center">
-          <img src={orderItems[0].img} className="w-16 h-20 object-cover rounded shadow-sm" alt="Item in cart" />
-          <div className="flex-1">
-            <h4 className="font-serif text-base text-yafe-navy mb-1">{orderItems[0].name}</h4>
-            <p className="text-xs text-yafe-navy/60 mb-2 font-medium tracking-wide uppercase">Size: {orderItems[0].size}</p>
-            <p className="text-sm font-semibold text-yafe-navy">{formatNaira(orderItems[0].price)}</p>
-          </div>
-          <button className="text-xs text-yafe-navy/50 underline self-start mt-1 cursor-pointer">Edit</button>
+        {/* Cart Items Preview */}
+        <div className="space-y-3 mb-10">
+          {cartItems.length === 0 && (
+            <div className="bg-yafe-cream/50 border border-yafe-navy/5 p-6 rounded-xl text-center">
+              <p className="text-sm text-yafe-navy/60 mb-3">Your cart is empty</p>
+              <Link href="/shop" className="text-xs text-yafe-terracotta underline font-medium">Browse Shop</Link>
+            </div>
+          )}
+          {cartItems.map((item) => (
+            <div key={`${item.id}-${item.size}`} className="bg-yafe-cream/50 border border-yafe-navy/5 p-4 rounded-xl flex gap-4 items-center">
+              <img src={item.image} className="w-16 h-20 object-cover rounded shadow-sm" alt={item.name} />
+              <div className="flex-1">
+                <h4 className="font-serif text-base text-yafe-navy mb-1">{item.name}</h4>
+                <p className="text-xs text-yafe-navy/60 mb-2 font-medium tracking-wide uppercase">Size: {item.size} {item.quantity > 1 ? `× ${item.quantity}` : ''}</p>
+                <p className="text-sm font-semibold text-yafe-navy">{formatNaira(item.price * item.quantity)}</p>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Step 1: Shipping */}
