@@ -1,26 +1,101 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FDF6F0;
+  --foreground: #1a1a2e;
+  --yafe-cream: #FDF6F0;
+  --yafe-navy: #1a1a2e;
+  --yafe-terracotta: #C4703F;
+  --yafe-coral: #E07B5B;
+  --yafe-gold: #C4A265;
+  --yafe-light-gold: #D4B88A;
+  --yafe-white: #FFFFFF;
+  --yafe-gray-100: #F5EBE1;
+  --yafe-gray-200: #E8E0D8;
+  --yafe-gray-300: #C4BDB5;
+  --yafe-gray-400: #8A8580;
+  --yafe-gray-500: #6B6560;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-yafe-cream: var(--yafe-cream);
+  --color-yafe-navy: var(--yafe-navy);
+  --color-yafe-terracotta: var(--yafe-terracotta);
+  --color-yafe-coral: var(--yafe-coral);
+  --color-yafe-gold: var(--yafe-gold);
+  --color-yafe-light-gold: var(--yafe-light-gold);
+  --color-yafe-white: var(--yafe-white);
+  --color-yafe-gray-100: var(--yafe-gray-100);
+  --color-yafe-gray-200: var(--yafe-gray-200);
+  --color-yafe-gray-300: var(--yafe-gray-300);
+  --color-yafe-gray-400: var(--yafe-gray-400);
+  --color-yafe-gray-500: var(--yafe-gray-500);
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar utility */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Active press state for all interactive elements */
+button,
+a[class*="bg-yafe"],
+a[class*="border-yafe"] {
+  transition: transform 0.12s ease;
+}
+button:active,
+a[class*="bg-yafe"]:active,
+a[class*="border-yafe"]:active {
+  transform: scale(0.98);
+}
+
+/* Tabular numbers for data displays */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Text wrap balance for headings */
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+/* Typography: antialiased on retina */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Minimum touch target size */
+button {
+  min-height: 32px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--yafe-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--yafe-gray-300);
+  border-radius: 3px;
 }
