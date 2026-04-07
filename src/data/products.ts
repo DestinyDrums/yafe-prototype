@@ -15,7 +15,7 @@ export interface Product {
 export const products: Product[] = [
   {
     id: 'yafe-001',
-    name: 'Boyfriend Blazer',
+    name: 'Ngozi Boyfriend Blazer',
     price: 36000,
     category: 'Blazers',
     description:
@@ -30,7 +30,7 @@ export const products: Product[] = [
   },
   {
     id: 'yafe-002',
-    name: 'Pencil Dress',
+    name: 'Oluwaseun Pencil Dress',
     price: 42000,
     category: 'Dresses',
     description:
@@ -45,7 +45,7 @@ export const products: Product[] = [
   },
   {
     id: 'yafe-003',
-    name: 'Peplum Blouse',
+    name: 'Chidinma Peplum Blouse',
     price: 29000,
     category: 'Blouses',
     description:
@@ -60,7 +60,7 @@ export const products: Product[] = [
   },
   {
     id: 'yafe-004',
-    name: 'Silk Shell Blouse',
+    name: 'Amina Silk Shell Blouse',
     price: 31000,
     category: 'Blouses',
     description:
@@ -75,7 +75,7 @@ export const products: Product[] = [
   },
   {
     id: 'yafe-005',
-    name: 'Structured Blazer',
+    name: 'Adaeze Structured Blazer',
     price: 38500,
     category: 'Blazers',
     description:
@@ -90,7 +90,7 @@ export const products: Product[] = [
   },
   {
     id: 'yafe-006',
-    name: 'Tailored Pants',
+    name: 'Folake Tailored Pants',
     price: 32000,
     category: 'Trousers',
     description:
@@ -105,7 +105,7 @@ export const products: Product[] = [
   },
   {
     id: 'yafe-007',
-    name: 'Wide Leg Pants',
+    name: 'Ifeoma Wide Leg Pants',
     price: 28500,
     category: 'Trousers',
     description:
@@ -120,7 +120,7 @@ export const products: Product[] = [
   },
   {
     id: 'yafe-008',
-    name: 'Wrap Dress',
+    name: 'Yetunde Wrap Dress',
     price: 39500,
     category: 'Dresses',
     description:

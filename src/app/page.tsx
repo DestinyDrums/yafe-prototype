@@ -164,13 +164,13 @@ export default function Home() {
             {
               title: 'Aso-Oke Inspired Weave',
               desc: 'Should we bring this textured woven pattern to our signature trench coat for the rainy season?',
-              img: 'https://images.unsplash.com/photo-1558171813-4c088753af8f?auto=format&fit=crop&w=500&q=80',
+              img: '/products/aso_oke.jpeg',
               trending: true,
             },
             {
               title: 'Midnight Indigo Dye',
               desc: 'Thinking of introducing a deep indigo wash for the staple Victoria wide-leg trousers. Thoughts?',
-              img: 'https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?auto=format&fit=crop&w=500&q=80',
+              img: '/products/midnight_indigo.jpeg',
               trending: false,
             },
           ].map((card) => (

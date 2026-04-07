@@ -62,8 +62,8 @@ export const artisanImages = [
 export const aboutHeroImage = 'https://images.unsplash.com/photo-1718693942271-4cd86f5aa1f4?auto=format&fit=crop&w=1400&q=80';
 
 export const insidersVoteImages = {
-  vneck: 'https://images.unsplash.com/photo-1686628332798-757c624c4b08?auto=format&fit=crop&w=400&q=80',
-  mandarin: 'https://images.unsplash.com/photo-1649870577213-a1cf42de5616?auto=format&fit=crop&w=400&q=80',
+  asoOke: '/products/aso_oke.jpeg',
+  midnightIndigo: '/products/midnight_indigo.jpeg',
 };
 
 export const collectionHeroImages: Record<string, string> = {
