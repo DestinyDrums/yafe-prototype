@@ -29,7 +29,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A2E]/80 via-[#1A1A2E]/30 to-transparent flex flex-col justify-end p-6 sm:p-12 lg:p-20">
           <span className="text-yafe-gold text-[10px] font-bold tracking-[0.2em] uppercase mb-3 block">Our Story</span>
           <h1 className="font-serif text-4xl sm:text-5xl text-yafe-cream font-medium leading-tight max-w-xl">
-            Fashion That Works<br />For Every Woman.
+            For Women that Show Up<br />and Stand Out.
           </h1>
         </div>
       </section>

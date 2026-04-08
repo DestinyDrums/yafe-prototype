@@ -59,7 +59,7 @@ export const artisanImages = [
   'https://images.unsplash.com/photo-1687052093309-7a14efa58ecb?auto=format&fit=crop&w=400&q=80',
 ];
 
-export const aboutHeroImage = 'https://images.unsplash.com/photo-1718693942271-4cd86f5aa1f4?auto=format&fit=crop&w=1400&q=80';
+export const aboutHeroImage = '/standout.jpeg';
 
 export const insidersVoteImages = {
   vneck: '/products/vneck.jpeg',
